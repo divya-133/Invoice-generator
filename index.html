@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quick Invoice Generator</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <!-- Input Form -->
+    <section class="form-section">
+      <h1>🧾 Quick Invoice Generator</h1>
+      <label>Client Name:
+        <input type="text" id="clientName" placeholder="John Doe" />
+      </label>
+      <label>Invoice Date:
+        <input type="date" id="invoiceDate" />
+      </label>
+      <label>Currency:
+        <select id="currency">
+          <option value="₹">₹ (INR)</option>
+          <option value="$">$ (USD)</option>
+          <option value="€">€ (EUR)</option>
+        </select>
+      </label>
+
+      <h3>Invoice Items</h3>
+      <div id="itemsContainer"></div>
+      <button id="addItem">+ Add Item</button>
+    </section>
+
+    <!-- Invoice Preview -->
+    <section class="preview-section" id="invoice">
+      <div class="invoice-header">
+        <div>
+          <h2>Invoice</h2>
+          <p id="displayDate"></p>
+        </div>
+      </div>
+
+      <p><strong>Bill To:</strong> <span id="displayClient">John Doe</span></p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Service</th>
+            <th>Qty</th>
+            <th>Rate</th>
+            <th>Amount</th>
+          </tr>
+        </thead>
+        <tbody id="itemTableBody"></tbody>
+      </table>
+
+      <div class="total-row">
+        <strong>Total:</strong> <span id="grandTotal">₹0.00</span>
+      </div>
+
+      <button id="downloadPDF">⬇️ Download PDF</button>
+    </section>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
+
